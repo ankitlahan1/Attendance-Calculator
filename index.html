@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your attendance percentage and find out how many classes you can bunk easily.">
+    <meta name="keywords" content="Attendance Calculator, Class Bunk Tracker, Student Attendance, Attendance Percentage">
+    <meta name="author" content="Your Website Name">
+    <title>Attendance Calculator & Bunk Tracker</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            margin: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+        button {
+            padding: 12px 20px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #e68900;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .ads-container {
+            margin: 20px 0;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Attendance Calculator & Bunk Tracker</h2>
+        <p>Enter your total classes and attended classes to calculate your attendance percentage and find out how many classes you can bunk.</p>
+        <input type="number" id="totalClasses" placeholder="Total Classes Conducted" required>
+        <input type="number" id="attendedClasses" placeholder="Total Classes Attended" required>
+        <input type="number" id="requiredPercentage" placeholder="Required Attendance Percentage" required>
+        <button onclick="calculateAttendance()">Calculate</button>
+        <p class="result" id="result"></p>
+    </div>
+    
+    <!-- Google AdSense Placement -->
+    <div class="ads-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXX"
+            data-ad-slot="XXXXXXX"
+            data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <script>
+        function calculateAttendance() {
+            let total = document.getElementById("totalClasses").value;
+            let attended = document.getElementById("attendedClasses").value;
+            let requiredPercentage = document.getElementById("requiredPercentage").value;
+            
+            if (total == 0 || attended == "" || requiredPercentage == "") {
+                document.getElementById("result").innerHTML = "Please enter valid numbers.";
+                return;
+            }
+            
+            let attendance = (attended / total) * 100;
+            let bunkableRequired = Math.floor((attended / (requiredPercentage / 100)) - total);
+            let message = `Your attendance is <b>${attendance.toFixed(2)}%</b>.`;
+            message += bunkableRequired > 0 ? ` You can bunk <b>${bunkableRequired}</b> more classes to maintain ${requiredPercentage}% attendance.` : ` You cannot bunk any more classes for ${requiredPercentage}%!`;
+            document.getElementById("result").innerHTML = message;
+        }
+    </script>
+    <footer>
+        <p>&copy; 2025 Attendance Calculator | All Rights Reserved</p>
+    </footer>
+    <!-- Sitemap -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Attendance Calculator & Bunk Tracker",
+      "description": "Calculate your attendance percentage and find out how many classes you can bunk easily.",
+      "url": "https://yourwebsite.com"
+    }
+    </script>
+</body>
+</html>
