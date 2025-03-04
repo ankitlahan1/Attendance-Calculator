@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ankitlahan1.github.io/Attendance-Calculator/sitemap1.xml
